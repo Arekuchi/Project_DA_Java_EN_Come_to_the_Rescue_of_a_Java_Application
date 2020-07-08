@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 anxiety = 5
 arrhythmias = 3
 blindness = 1
@@ -22,6 +23,11 @@ stiff neck = 4
 stomach pain = 3
 tremor = 4
 water retention = 1
+=======
+headache: 0
+rash: 4
+dialated pupils: 7
+>>>>>>> 3561ac2... hotifx
 =======
 headache: 0
 rash: 4
