@@ -1,17 +1,19 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.hemebiotech.counter.mapSymptom;
+import com.hemebiotech.imprimerresultat.Imprimeresult;
+import com.hemebiotech.lecturetexte.ReadSymptomDataFromFile;
+import com.hemebiotech.trieralphabétique.TrierListe;
+
 public class AnalyticsCounter {
 
 	public static Map<String, Integer> myMap = new HashMap<>();
+	private static List<String> symptomes = new ArrayList<String>();
 
 	public static void main(String args[]) throws Exception {
 		// 1ere etape : savoir ouvrir le fichier txt en java (symptoms.txt)
@@ -19,47 +21,30 @@ public class AnalyticsCounter {
 		// 3e etape : Compter les symptômes (hashmap Java / treemap)
 		// 4e etape : on range dans l'ordre Alphabétique les symptômes comptés
 		// 5e etape : sortir/ecrire un fichier result.out
-		// 6e etape : pusher dans une branche hotfix << On est ici actuellement.
+		// 6e etape : pusher dans une branche hotfix
 		// 7e etape : basculer vers une branche dévelop
 		// 8e etape : crée une branche features/refactor
 		// 9e etape : faire des packages et classes into méthode de classe, nettoyer la
 		// méthode main
-		// Faire un push après chaque package
-		// 6e etape : faire des packages et classes into méthode de classe, nettoyer la
-		// méthode main
-		// 7e etape :
-		// 6e etape : faire des packages et classes into méthode de classe, nettoyer la
-		// méthode main
-		// 7e etape :
+		// Faire un push après chaque package << On est ici actuellement.
 		// changer analytics counter en class
-		// faire une nouvelle main
-		// first get input
-		BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
-		String line = reader.readLine();
+		// faire une nouvelle main qui utilise les interfaces
 
-		while (line != null) {
-			if (myMap.containsKey(line)) {
-				myMap.put(line, myMap.get(line) + 1);
-			} else {
-				myMap.put(line, 1);
+		// utilisation de ReadSymptomDataFromFile
+		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile("symptoms.txt");
+		List<String> allSymptoms = reader.GetSymptoms();
 
-			}
+		// utilisation de CountSymptom
+		mapSymptom counter = new mapSymptom();
+		myMap = counter.count(allSymptoms);
 
-			line = reader.readLine(); // get another symptom
-			reader.close();
+		// trier par ordre alphabétique
+		TrierListe listesymptome = new TrierListe();
+		symptomes = listesymptome.symptoms(myMap);
 
-			List<String> symptomes = new ArrayList<>(myMap.keySet());
-			Collections.sort(symptomes);
-
-			// next generate output
-			FileWriter writer = new FileWriter("result.out");
-			for (String symptome : symptomes) {
-				writer.write(symptome + " = " + myMap.get(symptome) + "\n");
-				writer.close();
-			}
-
-		}
-
+		// utlisation de Imprimeresult
+		Imprimeresult writefile = new Imprimeresult();
+		writefile.Imprimer(symptomes, myMap);
 	}
 
 }
