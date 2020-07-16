@@ -4,10 +4,10 @@ import java.io.FileWriter;
 import java.util.List;
 import java.util.Map;
 
-public class Imprimeresult implements Iimprimer {
+public class ImprimeResult implements IImprimer {
 	private String filePath;
 
-	public Imprimeresult(String filepath) {
+	public ImprimeResult(String filepath) {
 		this.filePath = filepath;
 	}
 

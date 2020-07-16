@@ -1,9 +1,9 @@
 package com.hemebiotech.main;
 
-import com.hemebiotech.counter.ImapSymptom;
-import com.hemebiotech.counter.mapSymptom;
-import com.hemebiotech.imprimerresultat.Iimprimer;
-import com.hemebiotech.imprimerresultat.Imprimeresult;
+import com.hemebiotech.counter.IMapSymptom;
+import com.hemebiotech.counter.MapSymptom;
+import com.hemebiotech.imprimerresultat.IImprimer;
+import com.hemebiotech.imprimerresultat.ImprimeResult;
 import com.hemebiotech.lecturetexte.ISymptomReader;
 import com.hemebiotech.lecturetexte.ReadSymptomDataFromFile;
 import com.hemebiotech.trieralphabétique.ITrierListe;
@@ -15,11 +15,11 @@ public class MainRefactor {
 		// TODO Auto-generated method stub
 
 		ISymptomReader reader = new ReadSymptomDataFromFile("symptoms.txt");
-		ImapSymptom counter = new mapSymptom();
+		IMapSymptom counter = new MapSymptom();
 		ITrierListe trier = new TrierListe();
-		Iimprimer imprimer = new Imprimeresult("result.out");
+		IImprimer imprimer = new ImprimeResult("result.out");
 
-		AnalyticsCounterconstructeur stylo = new AnalyticsCounterconstructeur(counter, imprimer, reader, trier);
+		AnalyticsCounterConstructeur stylo = new AnalyticsCounterConstructeur(counter, imprimer, reader, trier);
 		stylo.execute();
 	}
 

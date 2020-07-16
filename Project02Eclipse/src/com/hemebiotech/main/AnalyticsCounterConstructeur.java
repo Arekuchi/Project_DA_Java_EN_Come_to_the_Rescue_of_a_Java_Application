@@ -3,18 +3,18 @@ package com.hemebiotech.main;
 import java.util.List;
 import java.util.Map;
 
-import com.hemebiotech.counter.ImapSymptom;
-import com.hemebiotech.imprimerresultat.Iimprimer;
+import com.hemebiotech.counter.IMapSymptom;
+import com.hemebiotech.imprimerresultat.IImprimer;
 import com.hemebiotech.lecturetexte.ISymptomReader;
 import com.hemebiotech.trieralphabétique.ITrierListe;
 
-public class AnalyticsCounterconstructeur {
-	private final ImapSymptom counter;
-	private final Iimprimer imprimer;
+public class AnalyticsCounterConstructeur {
+	private final IMapSymptom counter;
+	private final IImprimer imprimer;
 	private final ISymptomReader reader;
 	private final ITrierListe lire;
 
-	public AnalyticsCounterconstructeur(ImapSymptom counter, Iimprimer imprimer, ISymptomReader reader,
+	public AnalyticsCounterConstructeur(IMapSymptom counter, IImprimer imprimer, ISymptomReader reader,
 			ITrierListe lire) {
 
 		this.counter = counter;

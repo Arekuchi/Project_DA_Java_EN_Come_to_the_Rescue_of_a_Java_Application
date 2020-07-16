@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class mapSymptom implements ImapSymptom {
+public class MapSymptom implements IMapSymptom {
 
 	@Override
 	public Map<String, Integer> count(List<String> symptoms) {
